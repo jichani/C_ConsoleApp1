@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloCSharp", "ConsoleApp1\HelloCSharp.csproj", "{529BED76-881D-4302-8D37-073A5A0106E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloCSharpWin", "HelloCharpWin\HelloCSharpWin.csproj", "{DD3CC6F1-D5AB-4A99-9EA7-2BDD373F9CC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{529BED76-881D-4302-8D37-073A5A0106E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{529BED76-881D-4302-8D37-073A5A0106E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{529BED76-881D-4302-8D37-073A5A0106E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD3CC6F1-D5AB-4A99-9EA7-2BDD373F9CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD3CC6F1-D5AB-4A99-9EA7-2BDD373F9CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD3CC6F1-D5AB-4A99-9EA7-2BDD373F9CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD3CC6F1-D5AB-4A99-9EA7-2BDD373F9CC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
