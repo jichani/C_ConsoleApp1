@@ -23,8 +23,41 @@ namespace HelloCharpWin
 
         private void SumNumbers_Click(object sender, EventArgs e)
         {
-            int number1 = Convert.ToInt32(Sum1.Text);
-            int number2 = Convert.ToInt32(Sum2.Text);
+            int number1 = 0;
+            int number2 = 0;
+
+            // 빈 문자와 공백인지를 확인해주는 메서드 IsNullOrWhiteSpace
+            if (string.IsNullOrWhiteSpace(Sum1.Text))
+            {
+                MessageBox.Show("Sum1에 숫자를 입력해주세요");
+                Sum1.Focus();
+                return;
+            }
+
+            if (int.TryParse(Sum1.Text, out number1) == false)
+            {
+                MessageBox.Show("Sum1에 문자가 들어왔습니다. 숫자를 입력해주세요");
+                Sum1.SelectAll();
+                Sum1.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(Sum2.Text))
+            {
+                MessageBox.Show("Sum2에 숫자를 입력해주세요");
+                return;
+            }
+
+            if (int.TryParse(Sum2.Text, out number1) == false)
+            {
+                MessageBox.Show("Sum2에 문자가 들어왔습니다. 숫자를 입력해주세요");
+                return;
+            }
+
+            // int.TryParse int형으로 바꾸는 데 바꿔지면 true. 바꿔지지 않으면 false.
+
+            number1 = Convert.ToInt32(Sum1.Text);
+            number2 = Convert.ToInt32(Sum2.Text);
 
             int sum = Add(number1, number2);
             SumResult.Text = sum.ToString();
