@@ -4,9 +4,18 @@ namespace HelloCharpWin
 {
     public partial class Calculator : Form
     {
+        // enum 열거형 데이터 타입을 선언
+        // public enum Season { Spring, Summer, Fall, Winter }
+        // 열거형 데이터 타입을 할당
+        // Season CurrentSeason = Season.Spring;
+
+        public enum Operators { Add, Sub, Multi, Div };
+
         public int Result = 0;
         // isNewNum이 true인 때는 처음 시작했을 때, + 버튼이 클릭되었을 때
         public bool isNewNum = true;
+
+        public Operators Opt = Operators.Add;
 
         public Calculator()
         {
@@ -48,12 +57,9 @@ namespace HelloCharpWin
 
         private void NumButton1_Click(object sender, EventArgs e)
         {
-            SetNum("1");
-        }
-
-        private void NumButton2_Click(object sender, EventArgs e)
-        {
-            SetNum("2");
+            // sender가 object 형태이므로 Button 형태로 바꿔서 변수에 담아준다.
+            Button numButton = (Button)sender;
+            SetNum(numButton.Text);
         }
 
         public void SetNum(string num)
@@ -73,13 +79,43 @@ namespace HelloCharpWin
             }
         }
 
-        private void NumPlus_Click(object sender, EventArgs e)
+        private void NumOpt_Click(object sender, EventArgs e)
         {
-            int num = int.Parse(NumScreen.Text);
-            Result = Result + num;
+            // 변수 = 0;
+            // 연산자 = +;
 
-            NumScreen.Text = Result.ToString();
-            isNewNum = true;
+            // 숫자 입력
+            // 연산자 버튼 - 숫자 완성, 변수와 숫자를 저장된 연산자로 연산, 결과를 변수에 저장, 현재 연산자를 저장
+            // 숫자 입력
+
+            if (isNewNum == false)
+            {
+                int num = int.Parse(NumScreen.Text);
+                if (Opt == Operators.Add)
+                    Result = Add(Result, num);
+                else if (Opt == Operators.Sub)
+                    Result = Sub(Result, num);
+
+                NumScreen.Text = Result.ToString();
+                isNewNum = true;
+            }
+
+            Button optButton = (Button)sender;
+            if (optButton.Text == "+")
+                Opt = Operators.Add;
+            else if (optButton.Text == "-")
+                Opt = Operators.Sub;
         }
+
+        private void NumClear_Click(object sender, EventArgs e)
+        {
+            Result = 0;
+            isNewNum = true;
+            Opt = Operators.Add;
+
+            NumScreen.Text = "0";
+        }
+
+
     }
 }
